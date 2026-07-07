@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Mestre - Rádio SH2</title>
+    <style>
+        body { background: #111; color: #fff; font-family: sans-serif; text-align: center; padding: 20px; }
+        button { display: block; width: 80%; max-width: 300px; margin: 15px auto; padding: 20px; font-size: 18px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; color: white; }
+        .btn-0 { background: #2e7d32; }
+        .btn-1 { background: #ef6c00; }
+        .btn-2 { background: #c62828; }
+    </style>
+</head>
+<body>
+    <h2>Controle do Rádio</h2>
+    <p>Selecione a proximidade do monstro:</p>
+    
+    <button class="btn-0" onclick="mudarDistancia(0)">🟢 Longe (Silêncio)</button>
+    <button class="btn-1" onclick="mudarDistancia(1)">🟡 Perto (Chiado Baixo)</button>
+    <button class="btn-2" onclick="mudarDistancia(2)">🔴 Muito Perto (Chiado Alto)</button>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+    <script>
+        // COLE SEU CONFIG DO FIREBASE AQUI
+        const firebaseConfig = {
+            apiKey: "AIzaSyBTqTS7QckZQTbNElUlgfWufUZgZm-7wXg",
+            authDomain: "radiorpg-67845.firebaseapp.com",
+            databaseURL: "https://radiorpg-67845-default-rtdb.firebaseio.com",
+            projectId: "radiorpg-67845",
+            storageBucket: "radiorpg-67845.firebasestorage.app",
+            messagingSenderId: "268781658436",
+            appId: "1:268781658436:web:995e8460dd1c8c80edb711"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        function mudarDistancia(nivel) {
+            database.ref('radio/nivel').set(nivel);
+        }
+    </script>
+</body>
+</html>

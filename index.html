@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rádio Receptor</title>
+    <style>
+        body { background: #050505; color: #555; font-family: monospace; text-align: center; padding-top: 100px; }
+        #status { font-size: 24px; margin-top: 20px; text-shadow: 0 0 10px rgba(255,0,0,0.5); }
+        .ligar-btn { padding: 15px 30px; font-size: 18px; background: #333; color: #fff; border: 1px solid #555; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div id="setup">
+        <p>O rádio precisa de permissão para tocar áudio automaticamente.</p>
+        <button class="ligar-btn" onclick="iniciarRadio()">LIGAR RÁDIO</button>
+    </div>
+
+    <div id="radio-player" style="display:none;">
+        <div style="font-size: 50px;">📻</div>
+        <div id="status">Sintonizado...</div>
+    </div>
+
+    <audio id="audioChiado" src="chiado.mp3" loop></audio>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+    <script>
+        // COLE SEU CONFIG DO FIREBASE AQUI (O mesmo da outra página)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBTqTS7QckZQTbNElUlgfWufUZgZm-7wXg",
+            authDomain: "radiorpg-67845.firebaseapp.com",
+            databaseURL: "https://radiorpg-67845-default-rtdb.firebaseio.com",
+            projectId: "radiorpg-67845",
+            storageBucket: "radiorpg-67845.firebasestorage.app",
+            messagingSenderId: "268781658436",
+            appId: "1:268781658436:web:995e8460dd1c8c80edb711"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        const audio = document.getElementById('audioChiado');
+
+        function iniciarRadio() {
+            document.getElementById('setup').style.display = 'none';
+            document.getElementById('radio-player').style.display = 'block';
+            
+            // Dá o play mudo só para o navegador liberar o áudio
+            audio.volume = 0;
+            audio.play().catch(e => console.log("Aguardando interação"));
+
+            // Começa a escutar o Firebase em tempo real
+            database.ref('radio/nivel').on('value', (snapshot) => {
+                const nivel = snapshot.val();
+                
+                if (nivel === 0) {
+                    audio.volume = 0;
+                    document.getElementById('status').innerText = "Sintonizado... (Silêncio)";
+                    document.getElementById('status').style.color = "#555";
+                } else if (nivel === 1) {
+                    audio.volume = 0.25; // Chiado Baixo
+                    document.getElementById('status').innerText = "⚠️ CHIADO DETECTADO";
+                    document.getElementById('status').style.color = "#ef6c00";
+                } else if (nivel === 2) {
+                    audio.volume = 0.9; // Chiado Alto
+                    document.getElementById('status').innerText = "🚨 PERIGO IMINENTE";
+                    document.getElementById('status').style.color = "#c62828";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
