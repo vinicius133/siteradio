@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel do Mestre - Rádio SH2</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         body { background: #111; color: #fff; font-family: sans-serif; text-align: center; padding: 20px; }
         button { display: block; width: 80%; max-width: 300px; margin: 15px auto; padding: 20px; font-size: 18px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; color: white; }
@@ -40,5 +41,39 @@
             database.ref('radio/nivel').set(nivel);
         }
     </script>
+
+    <button id="menuFab">☰</button>
+
+    <div id="menu">
+
+    <div class="slot">📻 Rádio</div>
+
+    <div class="slot">Vazio</div>
+
+    <div class="slot">Vazio</div>
+
+    <div class="slot">Vazio</div>
+
+    <div class="slot">Vazio</div>
+
+    <div class="slot">Vazio</div>
+
+    <script>
+        const menu=document.getElementById("menu");
+
+        document
+        .getElementById("menuFab")
+        .onclick=()=>{
+
+            menu.style.display=
+            menu.style.display==="flex"
+            ?"none"
+            :"flex";
+
+        }
+    </script>
+
+</div>
+
 </body>
 </html>
