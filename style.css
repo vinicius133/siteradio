@@ -1,0 +1,135 @@
+/* Corpo de todos os sites */
+body { 
+    background: #050505; 
+    color: #555; font-family: monospace; 
+    text-align: center; 
+    padding-top: 100px; 
+    }
+        
+    #status { 
+        font-size: 24px; 
+        margin-top: 20px; 
+        text-shadow: 0 0 10px rgba(255,0,0,0.5); 
+    }
+        
+    .ligar-btn { padding: 15px 30px; 
+        font-size: 18px; 
+        background: #333; 
+        color: #fff; 
+        border: 1px solid #555; 
+        cursor: pointer; }
+
+#adminBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+    border:none;
+
+    background:#222;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+
+    z-index:9999;
+}
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:10000;
+
+}
+
+.loginBox{
+
+    background:#111;
+
+    padding:30px;
+
+    border-radius:10px;
+
+    width:280px;
+
+}
+
+.loginBox input{
+
+    width:100%;
+
+    margin:15px 0;
+
+    padding:12px;
+
+}
+
+#menuFab{
+
+    position:fixed;
+
+    bottom:250px;
+
+    right:25px;
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#222;
+
+    color:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+#menu{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:100px;
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.slot{
+
+    background:#1f1f1f;
+
+    padding:14px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    min-width:160px;
+
+}
