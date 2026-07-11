@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel do Mestre - Rádio SH2</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body { background: #111; color: #fff; font-family: sans-serif; text-align: center; padding: 20px; }
-        button { display: block; width: 80%; max-width: 300px; margin: 15px auto; padding: 20px; font-size: 18px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; color: white; }
-        .btn-0 { background: #2e7d32; }
-        .btn-1 { background: #ef6c00; }
-        .btn-2 { background: #c62828; }
-    </style>
 </head>
 <body>
     <h2>Controle do Rádio</h2>
@@ -46,11 +39,11 @@
 
     <div id="menu">
 
-    <div class="slot">📻 Rádio</div>
+    <div class="slot"><a href="/radio.html">📻 Rádio</a></div>
 
     <div class="slot">Vazio</div>
 
-    <div class="slot">Vazio</div>
+    <div class="slot">⚔️ Site da Ordem</div>
 
     <div class="slot">Vazio</div>
 
@@ -59,18 +52,31 @@
     <div class="slot">Vazio</div>
 
     <script>
-        const menu=document.getElementById("menu");
+        const menu = document.getElementById("menu");
+        const menuFab = document.getElementById("menuFab");
 
-        document
-        .getElementById("menuFab")
-        .onclick=()=>{
+        menuFab.onclick = (e) => {
 
-            menu.style.display=
-            menu.style.display==="flex"
-            ?"none"
-            :"flex";
+            e.stopPropagation();
 
-        }
+            menu.style.display =
+                menu.style.display === "flex"
+                ? "none"
+                : "flex";
+
+        };
+
+        // Impede que clicar dentro do menu o feche
+        menu.onclick = (e) => {
+            e.stopPropagation();
+        };
+
+        // Fecha ao clicar em qualquer outro lugar
+        document.addEventListener("click", () => {
+
+            menu.style.display = "none";
+
+        });
     </script>
 
 </div>

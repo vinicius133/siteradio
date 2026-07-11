@@ -73,13 +73,17 @@
         <script>
             const modal=document.getElementById("loginModal");
 
-            document
-            .getElementById("adminBtn")
-            .onclick=()=>{
+            document.getElementById("adminBtn").onclick = () => {
 
                 modal.style.display="flex";
 
             }
+
+            modal.onclick = (e) => {
+                if (e.target === modal) {
+                    modal.style.display = "none";
+                }
+            };
 
             function loginMestre(){
 
@@ -122,11 +126,11 @@
 
     <div id="menu">
 
-    <div class="slot">📻 Rádio</div>
+    <div class="slot"><a href="/radio.html">📻 Rádio</a></div>
 
     <div class="slot">Vazio</div>
 
-    <div class="slot">Vazio</div>
+    <div class="slot">⚔️ Site da Ordem</div>
 
     <div class="slot">Vazio</div>
 
@@ -135,18 +139,31 @@
     <div class="slot">Vazio</div>
 
     <script>
-        const menu=document.getElementById("menu");
+        const menu = document.getElementById("menu");
+        const menuFab = document.getElementById("menuFab");
 
-        document
-        .getElementById("menuFab")
-        .onclick=()=>{
+        menuFab.onclick = (e) => {
 
-            menu.style.display=
-            menu.style.display==="flex"
-            ?"none"
-            :"flex";
+            e.stopPropagation();
 
-        }
+            menu.style.display =
+                menu.style.display === "flex"
+                ? "none"
+                : "flex";
+
+        };
+
+        // Impede que clicar dentro do menu o feche
+        menu.onclick = (e) => {
+            e.stopPropagation();
+        };
+
+        // Fecha ao clicar em qualquer outro lugar
+        document.addEventListener("click", () => {
+
+            menu.style.display = "none";
+
+        });
     </script>
 
 
