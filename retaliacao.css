@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
@@ -24,5 +24,231 @@ body{
 #imginicial img{
     width: 25vw;
     height: auto;
+} */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Consolas,monospace;
 }
 
+body{
+
+    background:
+    linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.78)),
+    url("assets/wppcyber.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    height:100vh;
+
+    color:#d8d8d8;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+#app{
+
+    width:420px;
+    max-width:90vw;
+
+    background:rgba(15,15,15,.75);
+
+    border:1px solid #444;
+
+    border-radius:10px;
+
+    padding:25px;
+
+    box-shadow:0 0 20px rgba(0,0,0,.6);
+
+}
+
+h1{
+
+    text-align:center;
+
+    letter-spacing:8px;
+
+    margin-bottom:5px;
+
+    color:white;
+
+}
+
+h3{
+
+    text-align:center;
+
+    color:#777;
+
+    font-weight:normal;
+
+    margin-bottom:30px;
+
+}
+
+#status{
+
+    border:1px solid #333;
+
+    padding:12px;
+
+    margin-bottom:25px;
+
+    font-size:14px;
+
+    background:#111;
+
+    line-height:28px;
+
+}
+
+.menuBtn{
+
+    width:100%;
+
+    padding:16px;
+
+    margin-bottom:10px;
+
+    background:#1b1b1b;
+
+    color:white;
+
+    border:1px solid #444;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    font-size:17px;
+
+}
+
+.menuBtn:hover{
+
+    background:#303030;
+
+}
+
+#rodape{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    color:#666;
+
+    font-style:italic;
+
+    min-height:25px;
+
+}
+
+#masterBtn{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#222;
+
+    color:white;
+
+    font-size:26px;
+
+    cursor:pointer;
+
+}
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.8);
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.login{
+
+    background:#151515;
+
+    border:1px solid #444;
+
+    width:300px;
+
+    padding:25px;
+
+    border-radius:10px;
+
+}
+
+.login h2{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+.login input{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#222;
+
+    border:1px solid #555;
+
+    color:white;
+
+    margin-bottom:15px;
+
+}
+
+.login button{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#333;
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+#clock{
+
+    color:#7fd67f;
+
+}

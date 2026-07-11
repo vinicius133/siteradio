@@ -1,15 +1,185 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retaliação</title>
-    <link rel="icon" href="assets/retaliacao.png" type="image/png">
     <link rel="stylesheet" href="retaliacao.css">
+
+    <title>RETALIAÇÃO</title>
+
+    <link rel="icon" href="assets/retaliacao.png">
+
+
+
 </head>
+
 <body>
-    <div id="imginicial">
-        <img src="/assets/retaliacao.png" alt="Retaliação">
+
+    <div id="app">
+
+        <h1>RETALIAÇÃO</h1>
+
+        <h3>Sistema Auxiliar de Campo</h3>
+
+        <div id="status">
+
+            <div>STATUS............. <span style="color:#67ff7d;">ONLINE</span></div>
+
+            <div>CONEXÃO........... ESTÁVEL</div>
+
+            <div>HORÁRIO........... <span id="clock"></span></div>
+
+        </div>
+
+        <button class="menuBtn" onclick="location.href='radio.html'">
+
+        📻 Rádio
+
+        </button>
+
+        <button class="menuBtn" onclick="indisponivel()">
+
+        ?
+
+        </button>
+
+        <button class="menuBtn" onclick="indisponivel()">
+
+        ⚔️ Site da Ordem
+
+        </button>
+
+        <button class="menuBtn" onclick="indisponivel()">
+
+        ?
+
+        </button>
+
+        <button class="menuBtn" onclick="indisponivel()">
+
+        📖 Diário
+
+        </button>
+
+        <div id="rodape"></div>
+
     </div>
-</body>
+
+        <button id="masterBtn">
+
+        ┼
+
+        </button>
+
+        <div class="modal" id="loginModal">
+
+        <div class="login">
+
+        <h2>Painel do Mestre</h2>
+
+        <input
+        id="senha"
+        type="password"
+        placeholder="Senha">
+
+        <button onclick="login()">
+
+        Entrar
+
+        </button>
+
+        </div>
+
+        </div>
+
+        <script>
+
+            const frases=[
+
+            "O rádio permanece em silêncio.",
+
+            "Você sente que não está sozinho.",
+
+            "O ar parece mais pesado.",
+
+            "Não confie no silêncio.",
+
+            "Algo está observando.",
+
+            "A interferência aumenta.",
+
+            "Nem todo inimigo faz barulho."
+
+            ];
+
+            document.getElementById("rodape").innerText=
+            frases[Math.floor(Math.random()*frases.length)];
+
+            function atualizarHora(){
+
+                const agora=new Date();
+
+                document.getElementById("clock").innerText=
+                agora.toLocaleTimeString();
+
+            }
+
+            setInterval(atualizarHora,1000);
+
+            atualizarHora();
+
+            function indisponivel(){
+
+                alert("Mecânica ainda não implementada.");
+
+            }
+
+            const modal=document.getElementById("loginModal");
+
+            document.getElementById("masterBtn").onclick=()=>{
+
+                modal.style.display="flex";
+
+            }
+
+            modal.onclick=(e)=>{
+
+                if(e.target===modal){
+
+                    modal.style.display="none";
+
+                }
+
+            }
+
+            function login(){
+
+                    if(document.getElementById("senha").value==="retaliação"){
+
+                        location.href="mestre.html";
+
+                    }
+
+                    else{
+
+                        alert("Senha incorreta.");
+
+                    }
+
+                }
+
+                document.addEventListener("keydown",(e)=>{
+
+                    if(e.key==="Escape"){
+
+                        modal.style.display="none";
+
+                    }
+
+                });
+
+        </script>
+
+    </body>
+<!-- Não tem segredo aqui =) -->
 </html>
