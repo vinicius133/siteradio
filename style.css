@@ -220,3 +220,23 @@ body {
     color: white; 
 }
 
+#radio-player img{
+    
+    width:25vw;
+    height:25vw;
+    border-radius:5px;
+
+    animation:shake .020s infinite;
+
+}
+
+
+@keyframes shake{
+
+    0%{transform:translate(0);}
+    25%{transform:translate(2px,2px);}
+    50%{transform:translate(-.5px,0);}
+    75%{transform:translate(0,-.5px);}
+    100%{transform:translate(.5px,0);}
+
+}
