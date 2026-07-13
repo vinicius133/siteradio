@@ -1,0 +1,309 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:#181818;
+    color:whitesmoke;
+
+    font-family:Segoe UI,Verdana,sans-serif;
+
+}
+
+.page{
+
+    width:min(1400px,96%);
+
+    margin:auto;
+
+}
+
+/*====================*/
+
+#topbanner{
+
+    border:3px solid rgb(41,41,41);
+
+    background:#181818;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:15px 20px;
+
+    margin:15px 0 20px;
+
+}
+
+#topbanner img{
+
+    width:90px;
+
+}
+
+#topbanner h1{
+
+    font-size:2rem;
+
+    font-weight:600;
+
+}
+
+/*====================*/
+
+.layout{
+
+    display:grid;
+
+    grid-template-columns:220px 1fr 240px;
+
+    gap:20px;
+
+    align-items:start;
+
+}
+
+/*====================*/
+
+.left,
+.right{
+
+    background:#202020;
+
+    border:1px solid #353535;
+
+    border-radius:8px;
+
+    padding:18px;
+
+    position:sticky;
+
+    top:15px;
+
+}
+
+.left h3,
+.right h3{
+
+    margin-bottom:15px;
+
+    color:#ddd;
+
+}
+
+.left a{
+
+    display:block;
+
+    padding:12px;
+
+    margin-bottom:6px;
+
+    cursor:pointer;
+
+    color:#bdbdbd;
+
+    border-radius:6px;
+
+    transition:.2s;
+
+}
+
+.left a:hover{
+
+    background:#313131;
+
+    color:white;
+
+}
+
+.right p{
+
+    margin:8px 0;
+
+    color:#a7a7a7;
+
+}
+
+.right hr{
+
+    margin:18px 0;
+
+    border:none;
+
+    border-top:1px solid #3b3b3b;
+
+}
+
+/*====================*/
+
+main{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.post{
+
+    background:#262626;
+
+    border:1px solid #393939;
+
+    border-radius:8px;
+
+    padding:18px;
+
+    transition:.15s;
+
+}
+
+.post:hover{
+
+    border-color:#666;
+
+    transform:translateY(-2px);
+
+}
+
+.post h2{
+
+    font-size:1.25rem;
+
+    margin-bottom:10px;
+
+    line-height:1.3;
+
+}
+
+.post p{
+
+    margin-top:10px;
+
+    line-height:1.6;
+
+    color:#c6c6c6;
+
+}
+
+small{
+
+    display:block;
+
+    color:#8d8d8d;
+
+}
+
+.tag{
+
+    display:inline-block;
+
+    background:#7d5d00;
+
+    color:white;
+
+    padding:4px 8px;
+
+    border-radius:4px;
+
+    margin-bottom:10px;
+
+    font-size:12px;
+
+}
+
+#recrutamento{
+
+    background:#444;
+
+    border-color:#5b5b5b;
+
+}
+
+/*====================*/
+/* MOBILE */
+/*====================*/
+
+@media(max-width:900px){
+
+    .layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .left,
+    .right{
+
+        position:static;
+
+        width:100%;
+
+    }
+
+    #topbanner{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    #topbanner h1{
+
+        font-size:1.6rem;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    body{
+
+        font-size:15px;
+
+    }
+
+    .page{
+
+        width:98%;
+
+    }
+
+    #topbanner{
+
+        padding:12px;
+
+    }
+
+    #topbanner img{
+
+        width:70px;
+
+    }
+
+    .left,
+    .right,
+    .post{
+
+        padding:15px;
+
+    }
+
+    .post h2{
+
+        font-size:1.05rem;
+
+    }
+
+}

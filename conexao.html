@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Conectando...</title>
+
+<style>
+
+body{
+
+    margin:0;
+    background:#000;
+    color:#d0d0d0;
+
+    font-family:Consolas,monospace;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+
+}
+
+#terminal{
+
+    width:700px;
+    max-width:90vw;
+
+    line-height:1.8;
+
+}
+
+.line{
+
+    opacity:0;
+
+    animation:show .1s forwards;
+
+}
+
+@keyframes show{
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+.cursor{
+
+    animation:blink .8s infinite;
+
+}
+
+@keyframes blink{
+
+    50%{
+
+        opacity:0;
+
+    }
+
+}
+
+.green{
+
+    color:#6eff6e;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="terminal"></div>
+
+<script>
+
+const linhas=[
+
+"Inicializando conexão...",
+
+"Carregando circuito TOR...",
+
+"Obtendo diretórios...",
+
+"Conectando em 7ak4m2v8pw3.onion",
+
+"Handshake concluído.",
+
+"Verificando identidade...",
+
+"Autenticando usuário...",
+
+"[ OK ] Acesso concedido."
+
+];
+
+const terminal=document.getElementById("terminal");
+
+let i=0;
+
+function escrever(){
+
+    if(i>=linhas.length){
+
+        setTimeout(()=>{
+
+            // location.href="ordem.html";
+
+            window.location.href = "ordem.html";
+
+        },800);
+
+        return;
+
+    }
+
+    const div=document.createElement("div");
+
+    div.className="line";
+
+    div.style.animationDelay="0s";
+
+    div.innerHTML="> "+linhas[i]+" <span class='cursor'>█</span>";
+
+    terminal.appendChild(div);
+
+    i++;
+
+    setTimeout(escrever,600);
+
+}
+
+escrever();
+
+</script>
+
+</body>
+</html>
