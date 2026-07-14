@@ -48,22 +48,12 @@
             audio.play().catch(e => console.log("Aguardando interação"));
 
             // Começa a escutar o Firebase em tempo real
-            database.ref('radio/nivel').on('value', (snapshot) => {
-                const nivel = snapshot.val();
-                
-                if (nivel === 0) {
-                    audio.volume = 0;
-                    document.getElementById('status').innerText = "Sintonizado... (Silêncio)";
-                    document.getElementById('status').style.color = "#555";
-                } else if (nivel === 1) {
-                    audio.volume = 0.25; // Chiado Baixo
-                    document.getElementById('status').innerText = "CHIADO DETECTADO";
-                    document.getElementById('status').style.color = "#ef6c00";
-                } else if (nivel === 2) {
-                    audio.volume = 0.9; // Chiado Alto
-                    document.getElementById('status').innerText = "PERIGO IMINENTE";
-                    document.getElementById('status').style.color = "#c62828";
-                }
+            database.ref("radio/nivel").on("value",(snap)=>{
+
+                const nivel = snap.val() ?? 0;
+
+                audio.volume = nivel / 100;
+
             });
         }
     </script>

@@ -9,11 +9,22 @@
 </head>
 <body>
     <h2>Controle do Rádio</h2>
-    <p>Selecione a proximidade do monstro:</p>
-    
-    <button class="btn-0" onclick="mudarDistancia(0)">🟢 Longe (Silêncio)</button>
-    <button class="btn-1" onclick="mudarDistancia(1)">🟡 Perto (Chiado Baixo)</button>
-    <button class="btn-2" onclick="mudarDistancia(2)">🔴 Muito Perto (Chiado Alto)</button>
+
+    <p>Intensidade do chiado</p>
+
+    <input
+        type="range"
+        id="sliderRadio"
+        min="0"
+        max="100"
+        value="0"
+        oninput="mudarDistancia(this.value)"
+    >
+
+    <p>
+        Intensidade:
+        <span id="valorSlider">0%</span>
+    </p>
 
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
@@ -31,9 +42,23 @@
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
-        function mudarDistancia(nivel) {
-            database.ref('radio/nivel').set(nivel);
+        function mudarDistancia(valor){
+
+            document.getElementById("valorSlider").textContent = valor + "%";
+
+            database.ref("radio/nivel").set(Number(valor));
+
         }
+
+        database.ref("radio/nivel").on("value",(snap)=>{
+
+            const valor = snap.val() ?? 0;
+
+            document.getElementById("sliderRadio").value = valor;
+
+            document.getElementById("valorSlider").textContent = valor + "%";
+
+        });
     </script>
 
     <button id="menuFab">☰</button>
