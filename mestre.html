@@ -6,11 +6,25 @@
     <title>Painel do Mestre - Rádio SH2</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/retaliacao.png">
+    <style>
+        body{
+            background:
+            linear-gradient(rgba(0,0,0,.90),rgba(0,0,0,.90)),
+            url("assets/wppcyber.jpg");
+
+            background-size:cover;
+            background-position:center;
+
+            height:100vh;
+
+            color:#d8d8d8;
+        }
+    </style>
 </head>
 <body>
     <h2>Controle do Rádio</h2>
 
-    <p>Intensidade do chiado</p>
+    <p style="font-size: large;">Intensidade do chiado</p>
 
     <input
         type="range"
@@ -25,7 +39,7 @@
     ⚠ ESTOURAR RÁDIO
     </button>
 
-    <p>
+    <p style="font-size: larger;">
         Intensidade:
         <span id="valorSlider">0%</span>
     </p>
