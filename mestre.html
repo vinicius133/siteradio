@@ -21,6 +21,10 @@
         oninput="mudarDistancia(this.value)"
     >
 
+    <button onclick="estourarRadio()" class="burstBtn">
+    ⚠ ESTOURAR RÁDIO
+    </button>
+
     <p>
         Intensidade:
         <span id="valorSlider">0%</span>
@@ -59,6 +63,24 @@
             document.getElementById("valorSlider").textContent = valor + "%";
 
         });
+
+        function estourarRadio(){
+
+            const slider = document.getElementById("sliderRadio");
+
+            const valorAnterior = Number(slider.value);
+
+            // Volume máximo
+            database.ref("radio/nivel").set(180);
+
+            // // Após 2 segundos volta ao valor anterior
+            // setTimeout(() => {
+
+            //     database.ref("radio/nivel").set(valorAnterior);
+
+            // }, 1500);
+
+        }
     </script>
 
     <button id="menuFab">☰</button>

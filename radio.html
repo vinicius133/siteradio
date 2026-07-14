@@ -39,22 +39,36 @@
 
         const audio = document.getElementById('audioChiado');
 
+        const audioContext = new AudioContext();
+
+        const source = audioContext.createMediaElementSource(audio);
+
+        const gainNode = audioContext.createGain();
+
+        source.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
         function iniciarRadio() {
+
             document.getElementById('setup').style.display = 'none';
             document.getElementById('radio-player').style.display = 'block';
-            
-            // Dá o play mudo só para o navegador liberar o áudio
-            audio.volume = 0;
+
+            audio.volume = 1;
+
+            gainNode.gain.value = 0;
+
+            audioContext.resume();
+
             audio.play().catch(e => console.log("Aguardando interação"));
 
-            // Começa a escutar o Firebase em tempo real
             database.ref("radio/nivel").on("value",(snap)=>{
 
                 const nivel = snap.val() ?? 0;
 
-                audio.volume = nivel / 100;
+                gainNode.gain.value = Math.max(0, nivel / 100);
 
             });
+
         }
     </script>
 
